@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv_compare"
+version = "0.1.0"
+authors = [
+  { name="Ashish N", email="ashish012@e.ntu.edu.sg" },
+]
+description = "A package for comparing CSV files"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "chardet",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.optional-dependencies]
+test = ["coverage"]
+
+[project.urls]
+Homepage = "https://github.com/ashishnarmen/csv_compare"
+Issues = "https://github.com/ashishnarmen/csv_compare/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

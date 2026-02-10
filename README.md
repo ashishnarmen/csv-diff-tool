@@ -1,4 +1,4 @@
-# csv-comparer
+# csv-diff-tool
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -8,7 +8,7 @@ A Python library for comparing CSV files with detailed output including extra co
 ## Installation
 
 ```bash
-pip install csv-comparer
+pip install csv-diff-tool
 ```
 
 ## Quick Start
@@ -16,7 +16,7 @@ pip install csv-comparer
 ### Compare two CSV files
 
 ```python
-from csv_comparer import CSVComparer
+from csv_diff_tool import CSVComparer
 
 result = CSVComparer.from_files("report_v1.csv", "report_v2.csv").compare("id")
 
@@ -29,7 +29,7 @@ print(result.mismatched_rows)           # Cell-level differences
 ### Compare from in-memory data
 
 ```python
-from csv_comparer import CSVComparer
+from csv_diff_tool import CSVComparer
 
 file_1 = ["id,name,score", "1,Alice,95", "2,Bob,87"]
 file_2 = ["id,name,score", "1,Alice,95", "2,Bob,90", "3,Carol,88"]
@@ -49,7 +49,7 @@ print(result)
 ### Transform data before comparing
 
 ```python
-from csv_comparer import CSVComparer
+from csv_diff_tool import CSVComparer
 
 comparer = CSVComparer.from_files("old.csv", "new.csv")
 
@@ -71,7 +71,7 @@ result = comparer.compare("id")
 ### Work with CSVParser directly
 
 ```python
-from csv_comparer import CSVParser
+from csv_diff_tool import CSVParser
 
 parser = CSVParser.from_file("data.csv")
 
@@ -131,12 +131,12 @@ A dataclass containing comparison results:
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/ashishnarmen/csv-comparer).
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/ashishnarmen/csv-diff-tool).
 
 ```bash
 # Clone and install for development
-git clone https://github.com/ashishnarmen/csv-comparer.git
-cd csv-comparer
+git clone https://github.com/ashishnarmen/csv-diff-tool.git
+cd csv-diff-tool
 pip install -e ".[test]"
 
 # Run tests with unittest and coverage
@@ -145,7 +145,7 @@ coverage report -m
 
 # Or, if you prefer pytest (install separately)
 pip install pytest pytest-cov
-pytest tests/ -v --cov=csv_comparer
+pytest tests/ -v --cov=csv_diff_tool
 ```
 
 ## License

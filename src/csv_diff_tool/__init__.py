@@ -1,4 +1,4 @@
-"""csv_comparer - A library for comparing CSV files.
+"""csv_diff_tool - A library for comparing CSV files.
 
 Provides tools for parsing, transforming, and comparing CSV files with
 detailed output including extra columns, extra rows, and mismatched values.

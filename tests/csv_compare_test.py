@@ -1,4 +1,4 @@
-from csv_comparer import CSVComparer, CSVParser
+from csv_diff_tool import CSVComparer, CSVParser
 import io
 import os
 import unittest

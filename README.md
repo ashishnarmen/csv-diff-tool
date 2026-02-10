@@ -139,7 +139,12 @@ git clone https://github.com/ashishnarmen/csv_compare.git
 cd csv_compare
 pip install -e ".[test]"
 
-# Run tests
+# Run tests with unittest and coverage
+coverage run -m unittest discover tests/
+coverage report -m
+
+# Or, if you prefer pytest (install separately)
+pip install pytest pytest-cov
 pytest tests/ -v --cov=csv_compare
 ```
 

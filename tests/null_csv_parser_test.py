@@ -1,4 +1,4 @@
-from csv_compare.csv_parser import NullCSVParser
+from csv_comparer.csv_parser import NullCSVParser
 import unittest
 
 

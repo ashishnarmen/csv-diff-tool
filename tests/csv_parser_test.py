@@ -268,6 +268,27 @@ class CSVParserTest(unittest.TestCase):
             csv_parser.index_column = "any_column"
         assert not csv_parser.has_error, "Empty CSV should not have errors"
 
+    def test_rename_column(self):
+        lines = [
+            "column 1,column 2,column 3",
+            "row 1,row 1:2,row 1:3",
+            "row 2,row 2:2,row 2:3",
+        ]
+        csv_parser = CSVParser.from_lines(lines)
+        csv_parser.rename_column("column 2", "new_column_name")
+        assert csv_parser.column_names == ["column 1", "new_column_name", "column 3"]
+        assert csv_parser.get_value("row 1", "new_column_name") == "row 1:2"
+        assert csv_parser.get_value("row 2", "new_column_name") == "row 2:2"
+
+    def test_rename_column_nonexistent(self):
+        lines = [
+            "column 1,column 2,column 3",
+            "row 1,row 1:2,row 1:3",
+        ]
+        csv_parser = CSVParser.from_lines(lines)
+        with self.assertRaises(ValueError):
+            csv_parser.rename_column("nonexistent_column", "new_name")
+
 
 if __name__ == "__main__":
     unittest.main()

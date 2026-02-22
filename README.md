@@ -112,6 +112,7 @@ Parses CSV data into a list of dictionaries with column-aware operations:
 - `CSVParser.from_file(path)` - Load from file (auto-detects encoding)
 - `CSVParser.from_lines(lines)` - Load from list of strings
 - `CSVParser.from_csv_text(text)` - Load from a single string
+- `rename_column(old_name, new_name)` - Rename a column
 - `get_row(column, value)` / `get_rows(column, value)` - Query rows
 - `get_value(row_id, column)` / `set_value(row_id, column, value)` - Cell access
 - `write_to_file()` - Write modifications back to the source file

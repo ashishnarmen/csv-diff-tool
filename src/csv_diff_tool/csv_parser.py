@@ -170,6 +170,30 @@ class CSVParser:
         if column_name not in self.column_names:
             self.column_names.append(column_name)
 
+    def rename_column(self, old_column_name: str, new_column_name: str) -> None:
+        """Rename a column to a new name.
+
+        Args:
+            old_column_name (str): Current column name to rename.
+            new_column_name (str): New column name.
+
+        Raises:
+            ValueError: If the old_column_name does not exist in the CSV.
+        """
+        if old_column_name not in self.column_names:
+            raise ValueError(f"Column '{old_column_name}' not found in column names")
+
+        for row in self.list_of_dicts:
+            if old_column_name in row:
+                row[new_column_name] = row.pop(old_column_name)
+
+        self.column_names = [
+            new_column_name if col == old_column_name else col for col in self.column_names
+        ]
+
+        if self._index_column == old_column_name:
+            self._index_column = new_column_name
+
     def get_row(self, column_name: str, row_value: str) -> Dict[str, str]:
         """Get the contents of the first matching row as a dictionary.
 
@@ -398,6 +422,9 @@ class NullCSVParser(CSVParser):
         pass
 
     def apply_transform(self, column_name: str, func: Callable) -> None:
+        pass
+
+    def rename_column(self, old_column_name: str, new_column_name: str) -> None:
         pass
 
     def drop_columns(self, column_names: List[str]) -> None:

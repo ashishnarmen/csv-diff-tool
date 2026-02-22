@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "csv-diff-tool"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Ashish N", email="ashish012@e.ntu.edu.sg" },
 ]
